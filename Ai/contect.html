@@ -152,7 +152,17 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                        <div id="map"></div>
+                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=476be20434ab883cf7eacf92e1adf6d8"></script>
+                        <script>
+                            var mapContainer = document.getElementById('map');
+                            var mapOptions = {
+                                center: new kakao.maps.LatLng(37.5666102, 126.9783881), // 지도 중심 좌표 설정
+                                level: 7 // 지도 확대 수준 설정
+                            };
+                            var map = new kakao.maps.Map(mapContainer, mapOptions);
+                        </script>
+                     </div>
                 </div>
             </div>
         </div>
