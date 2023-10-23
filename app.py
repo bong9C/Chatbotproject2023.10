@@ -8,11 +8,13 @@ app.config['DEBUG'] = True
 def home():
     return " "
 
-@app.route('/contact2')
+@app.route('/index')
 def index():
-    return render_template('contact2.html')
+    return render_template('index.html')
 
-
+@app.route('/chatbot')
+def chatbot():
+    return render_template('chatbot.html')
 
 
 
