@@ -538,3 +538,20 @@ h6,
     padding-right: 0;
     border-right: none;
 }
+
+/*검색*/
+#chatbot_toggle {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    right: 20px; /* Adjust the distance from the right as needed */
+    border: none;
+    height: 48px;
+    width: 48px;
+    background: rebeccapurple;
+    padding: 14px;
+    color: white;
+}
+
+#chatbot_toggle:hover {
+    background: #7d56a5;
+}

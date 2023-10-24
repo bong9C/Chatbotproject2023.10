@@ -43,7 +43,7 @@
             <div class="col-lg-7">
                 <p class="text-center mb-4">궁금하신 법적인 판례를 질문해주세요. AI가 답변 해드립니다.<a href="https://www.law.go.kr/">국가법령정보센터
                         바로가기</a>.</p>
-                <div class="wow fadeIn" data-wow-delay="0.3s">0.
+                <div class="wow fadeIn" data-wow-delay="0.3s">
                     
                     <div id="map" style="width: 100%; height: 400px;" />
                 </div>
@@ -55,7 +55,18 @@
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
-
+<button id="chatbot_toggle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+            d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+        style="display:none">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+    </svg>
+</button>
 
 {% endblock %}
