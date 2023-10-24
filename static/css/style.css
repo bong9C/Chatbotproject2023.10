@@ -539,8 +539,8 @@ h6,
     border-right: none;
 }
 
-/*검색*/
-#chatbot_toggle {
+/*검색 ( 아이콘이 고정되어 스크롤 움직일 때 마다 따라 올 수있게 하는 방법 , buttom, fixed 넣으면 됨) */
+#chatbot_toggle {       
     position: fixed;
     bottom: 20px; /* Adjust the distance from the bottom as needed */
     right: 20px; /* Adjust the distance from the right as needed */
