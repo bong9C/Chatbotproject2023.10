@@ -33,7 +33,6 @@
 
 
 <!-- Contact Start -->
-<div class="container-fluid py-5">
     <div class="container py-5">
         <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
             <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">법령 판례 AI</div>
@@ -41,18 +40,14 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <p class="text-center mb-4">궁금하신 법적인 판례를 질문해주세요. AI가 답변 해드립니다.<a href="https://www.law.go.kr/">국가법령정보센터
+                <p class="text-center mb-4">오른쪽 하단 <font color="#800080"><strong>보라색 채팅 아이콘을 눌러</strong></font>,궁금하신 법적인 판례를 질문해주세요.<br><a href="https://www.law.go.kr/">국가법령정보센터
                         바로가기</a>.</p>
                 <div class="wow fadeIn" data-wow-delay="0.3s">
-                    
-                    <div id="map" style="width: 100%; height: 400px;" />
                 </div>
             </div>
         </div>
     </div>
-</div>
 <!-- Contact End -->
-
 
 <!-- Back to Top ( 그냥 버튼 넣는곳 대체 )-->
 <button id="chatbot_toggle">
@@ -68,5 +63,13 @@
             d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
     </svg>
 </button>
+
+
+<div class="mx-auto text-center">
+<iframe src="{{url_for('static', filename='img/공단map.html')}}" frameborder="1"
+width="900" height="600"></iframe></div>
+
+
+
 
 {% endblock %}
