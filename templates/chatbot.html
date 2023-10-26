@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
+
 <h1 class="display-4 text-white mb-4 animated slideInRight">판례란?</h1>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
@@ -30,7 +31,7 @@
     </div>
 </div>
 <!-- Full Screen Search End -->
-
+    
 
 <!-- Contact Start -->
     <div class="container py-5">
@@ -40,7 +41,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <p class="text-center mb-4">오른쪽 하단 <font color="#800080"><strong>보라색 로봇 아이콘을 눌러</strong></font>,궁금하신 법적인 판례를 질문해주세요.<br><a href="https://www.law.go.kr/">국가법령정보센터
+                <p class="text-center mb-4">오른쪽 하단 <font color="#800080"><strong>아래 채팅창에</strong></font>,궁금하신 법적인 판례를 질문해주세요.<br><a href="https://www.law.go.kr/">국가법령정보센터
                         바로가기</a>.</p>
                 <div class="wow fadeIn" data-wow-delay="0.3s">
                 </div>
@@ -49,20 +50,61 @@
     </div>
 <!-- Contact End -->
 
-<!-- Back to Top ( 그냥 버튼 넣는곳 대체 )-->
-<button id="chatbot_toggle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M0 0h24v24H0V0z" fill="none" />
-        <path
-            d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-        style="display:none">
-        <path d="M0 0h24v24H0V0z" fill="none" />
-        <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-    </svg>
-</button>
+<script>
+    function send() {
+        let userInput = $('#userInput').val();
+        $('#userInput').val('')
+        let mark = 'mark' + Math.floor(Math.random() * 100000)
+        $.ajax({
+            type: 'POST',
+            url: '/chatbot/bard',
+            data: {userInput: userInput},
+            success: function(result) {
+                let obj = JSON.parse(result);
+                $('<div></div>')
+                        .attr({'class': 'd-flex flex-row mt-1', id: mark+'1'})
+                        .appendTo('#container');
+                    $('<div></div>')
+                        .attr({'class': 'card w-75', id: mark+'2'}).appendTo('#'+mark+'1');
+                    $('<div></div>')
+                        .attr({'class': 'card-body', id: mark+'3'}).appendTo('#'+mark+'2');
+                    $('<img></img>')
+                        .attr({src: "{{url_for('static', filename='img/person.png')}}", height: '32'}).appendTo('#'+mark+'3');
+                    $('<span></span>')
+                        .text(' '+obj.user).appendTo('#'+mark+'3');
+                $('<div></div>')
+                        .attr({'class': 'd-flex flex-row-reverse mt-1', id: mark+'6'})
+                        .appendTo('#container');
+                    $('<div></div>')
+                        .attr({'class': 'card bg-light text-dark w-75', id: mark+'7'}).appendTo('#'+mark+'6');
+                    $('<div></div>')
+                        .attr({'class': 'card-body text-end', id: mark+'8'}).appendTo('#'+mark+'7');
+                    $('<span></span>')
+                        .html(obj.chatbot.replaceAll('\n','<br>')+' ').appendTo('#'+mark+'8');
+                    $('<img></img>')
+                        .attr({src: "{{url_for('static', filename='img/bard-logo.png')}}", height: '32'}).appendTo('#'+mark+'8');                    
+                            }
+                        });
+                    }
+</script>
+
+<div class="d-flex justify-content-center" style="width: 100%; height: 100%;">
+        <span class="input-group-text"><img class="img-fluid" src="{{url_for('static', filename='img/person.png')}}" style="text-align: center; height: 32px; width: 32px;"></span>
+        
+        <input type="text" class="form-control" name="userInput" id="userInput" style="width: 40%;"
+            onkeyup="if(window.event.keyCode==13) {send()}">
+        <button class="btn btn-primary" type="submit" onclick="send()">전송</button>
+</div>
+
+<br>
+    <div class="d-flex justify-content-center" style="margin-left: auto; margin-right: auto; margin-bottom: 40px; width: 900px; border:6px groove;">
+        <div class="container overflow-auto" id="container" style="width: 80%; height: 600px; text-align: center;" >
+        </div>
+    </div>
+
+
+
+
 
 <div title_html = "대한 법률 구조 공단"></div>
 <div class="mx-auto text-center">
