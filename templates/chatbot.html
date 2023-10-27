@@ -57,7 +57,7 @@
         let mark = 'mark' + Math.floor(Math.random() * 100000)
         $.ajax({
             type: 'POST',
-            url: '/chatbot/bard',
+            url: '/chatbot',
             data: {userInput: userInput},
             success: function(result) {
                 let obj = JSON.parse(result);

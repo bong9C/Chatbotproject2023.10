@@ -1,7 +1,10 @@
 from flask import Flask, render_template
+from bp.chatbot import chatbot_bp
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
+# app.config['DEBUG'] = True
+
+# app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
 
 
 @app.route('/')     
