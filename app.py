@@ -4,7 +4,7 @@ from bp.chatbot import chatbot_bp
 app = Flask(__name__)
 # app.config['DEBUG'] = True
 
-# app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
+app.register_blueprint(chatbot_bp, url_prefix='/chatbot')
 
 
 @app.route('/')     
@@ -19,11 +19,9 @@ def index():
 def chatbot():
     return render_template('chatbot.html')
 
-@app.route('/chat')
-def chat():
-        return render_template('chat.html')
-
-
+@app.route('/counsel')
+def counsel():
+    return render_template('counsel.html')
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000)
